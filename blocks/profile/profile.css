@@ -1,0 +1,17 @@
+.profile {
+    width: 100%;
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+}
+
+
+@media screen and (max-width: 730px) {
+    .profile {
+        flex-direction: column;
+    }
+    
+}
