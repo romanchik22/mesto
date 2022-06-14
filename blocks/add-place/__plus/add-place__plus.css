@@ -1,0 +1,8 @@
+.add-place__plus {
+    width: 22px;
+}
+@media screen and (max-width: 320px) {
+    .add-place__plus {
+        width: 16px;
+    }
+}
