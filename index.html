@@ -6,6 +6,7 @@
   <title>Место</title>
   <link rel="stylesheet" href="./pages/index.css">
 </head>
+
 <body class="page">
   <div class="all-content">
     <header class="header">
@@ -14,22 +15,24 @@
     <main class="content">
       <section class="profile">
         <figure class="profile-main">
-          <img class="profile__avatar" src="./images/image.jpg" alt="Жак-Ив Кусто" >
+          <img class="profile__avatar" src="./images/image.jpg" alt="Жак-Ив Кусто">
           <div class="profile__info">
             <h1 class="profile__name">Жак-Ив&nbsp;Кусто
-              <button class="profile__edit" ><img class="profile__edit_pencil" src="./images/pencel.png" alt="карандаш"></button>  
+              <button class="profile__edit"><img class="profile__edit_pencil" src="./images/pencel.png"
+                  alt="карандаш"></button>
             </h1>
             <p class="profile__job">Исследователь океана</p>
           </div>
         </figure>
-        <button class="add-place"><img class="add-place__plus" src="./images/plus.png" alt=""></button>
+        <button class="add-place" onclick="buttonClick()"><img class="add-place__plus" src="./images/plus.png"
+            alt=""></button>
       </section>
       <section class="places">
         <div class="place">
           <img src="./images/karachaevsk.png" alt="карачаевск" class="place__image">
           <div class="place__info">
             <h3 class="place__title">Карачаевск</h3>
-            <object class="place__favorite" type="image/svg+xml" data="./images/like.svg" >
+            <object class="place__favorite" type="image/svg+xml" data="./images/like.svg">
               Your browser does not support SVG
             </object>
           </div>
@@ -38,7 +41,7 @@
           <img src="./images/elbrus.png" alt="эльбрус" class="place__image">
           <div class="place__info">
             <h3 class="place__title">Гора Эльбрус</h3>
-            <object class="place__favorite" type="image/svg+xml" data="./images/like.svg" >
+            <object class="place__favorite" type="image/svg+xml" data="./images/like.svg">
               Your browser does not support SVG
             </object>
           </div>
@@ -47,7 +50,7 @@
           <img src="./images/dombay.png" alt="Домбай" class="place__image">
           <div class="place__info">
             <h3 class="place__title">Домбай</h3>
-            <object class="place__favorite" type="image/svg+xml" data="./images/like.svg" >
+            <object class="place__favorite" type="image/svg+xml" data="./images/like.svg">
               Your browser does not support SVG
             </object>
           </div>
@@ -56,7 +59,7 @@
           <img src="./images/elbrus.png" alt="эльбрус" class="place__image">
           <div class="place__info">
             <h3 class="place__title">Гора Эльбрус</h3>
-            <object class="place__favorite" type="image/svg+xml" data="./images/like.svg" >
+            <object class="place__favorite" type="image/svg+xml" data="./images/like.svg">
               Your browser does not support SVG
             </object>
           </div>
@@ -65,7 +68,7 @@
           <img src="./images/dombay.png" alt="Домбай" class="place__image">
           <div class="place__info">
             <h3 class="place__title">Домбай</h3>
-            <object class="place__favorite" type="image/svg+xml" data="./images/like.svg" >
+            <object class="place__favorite" type="image/svg+xml" data="./images/like.svg">
               Your browser does not support SVG
             </object>
           </div>
@@ -74,19 +77,32 @@
           <img src="./images/karachaevsk.png" alt="карачаевск" class="place__image">
           <div class="place__info">
             <h3 class="place__title">Карачаево-Черкеск</h3>
-            <object class="place__favorite" type="image/svg+xml" data="./images/like.svg" >
+            <object class="place__favorite" type="image/svg+xml" data="./images/like.svg">
               Your browser does not support SVG
             </object>
           </div>
         </div>
-        
       </section>
     </main>
     <footer class="footer">
       <p class="footer__author">&copy; 2022 Mesto Russia</p>
     </footer>
   </div>
-  
+  <div class="popup hidden">
+  </div>
+  <div class="profile-editing hidden">
+    <img class="profile-editing__close" src="./images/close_icon.png" alt="закрыть" onclick="buttonClick()">
+    <h1 class="profile-editing__title">Редактировать профиль</h1>
+    <form class="profile-editing__form" onsubmit="buttonClick()">
+      <input placeholder="Имя" class="input" type="text">
+      <hr>
+      <input placeholder="Профессия" class="input" type="text">
+      <hr>
+      <button class="profile-editing__save" type="submit">Сохранить</button>
+    </form>
+  </div>
+  <script src="./scripts/script.js">
+  </script>
 </body>
 
 </html>

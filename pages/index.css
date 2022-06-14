@@ -21,5 +21,13 @@
 @import url(../blocks/place/__image/place__image.css);
 @import url(../blocks/place/__info/place__info.css);
 @import url(../blocks/place/__favorite/place__favorite.css);
+@import url(../blocks/profile-editing/profile-editing.css);
+@import url(../blocks/profile-editing/__title/profile-editing__title.css);
+@import url(../blocks/profile-editing/__save/profile-editing__save.css);
+@import url(../blocks/profile-editing/__close/profile-editing__close.css);
+@import url(../blocks/profile-editing/__form/profile-editing__form.css);
+@import url(../blocks/popup/popup.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__author/footer__author.css);
+@import url(../blocks/input/input.css);
+@import url(../blocks/hidden/hidden.css);

@@ -1,0 +1,21 @@
+.profile-editing__save {
+    width: 100%;
+    height: 50px;
+    background: #000000;
+    border-radius: 2px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 40px;
+}
+
+@media screen and (max-width: 450px) {
+    .profile-editing__save {
+        margin-top: 35px;
+        font-size: 14px;
+        line-height: 17px;
+        
+    }
+}
