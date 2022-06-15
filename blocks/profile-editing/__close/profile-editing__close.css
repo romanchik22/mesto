@@ -3,14 +3,15 @@
     right: -40px;
     top: -40px;
 }
+
 @media screen and (max-width: 450px) {
     .profile-editing__close {
         width: 20px;
-        top: -36px; 
+        top: -36px;
         right: 0;
-            
     }
 }
+
 .profile-editing__close:hover {
     opacity: 0.6;
     cursor: pointer;
