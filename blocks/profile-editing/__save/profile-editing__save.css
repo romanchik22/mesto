@@ -19,3 +19,7 @@
         
     }
 }
+.profile-editing__save:hover {
+    opacity: .8;
+    cursor: pointer;
+}

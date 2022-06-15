@@ -13,3 +13,7 @@
     }
     
 }
+.profile__edit:hover {
+    opacity: .8;
+    cursor: pointer;
+}

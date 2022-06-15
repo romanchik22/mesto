@@ -1,3 +1,9 @@
 .place__favorite { 
     margin-left: 35px;
+    width: 22px;
+    height: 19px;
+}
+.place__favorite:hover {
+    opacity: .5;
+    cursor: pointer;
 }
