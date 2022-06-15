@@ -17,15 +17,16 @@
         <figure class="profile-main">
           <img class="profile__avatar" src="./images/image.jpg" alt="Жак-Ив Кусто">
           <div class="profile__info">
-            <h1 class="profile__name">Жак-Ив&nbsp;Кусто
+            <div class="profile__container">
+              <h1 class="profile__name">Жак-Ив&nbsp;Кусто
+              </h1>
               <button class="profile__edit"><img class="profile__edit_pencil" src="./images/pencel.png"
                   alt="карандаш"></button>
-            </h1>
+            </div>
             <p class="profile__job">Исследователь океана</p>
           </div>
         </figure>
-        <button class="add-place" onclick="buttonClick()"><img class="add-place__plus" src="./images/plus.png"
-            alt=""></button>
+        <button class="add-place" onclick=""><img class="add-place__plus" src="./images/plus.png" alt=""></button>
       </section>
       <section class="places">
         <div class="place">
@@ -91,12 +92,12 @@
   <div class="popup hidden">
   </div>
   <div class="profile-editing hidden">
-    <img class="profile-editing__close" src="./images/close_icon.png" alt="закрыть" onclick="buttonClick()">
+    <img class="profile-editing__close" src="./images/close_icon.png" alt="закрыть">
     <h1 class="profile-editing__title">Редактировать профиль</h1>
-    <form class="profile-editing__form" onsubmit="buttonClick()">
-      <input placeholder="Имя" class="input" type="text">
+    <form class="profile-editing__form">
+      <input placeholder="Имя" class="input input_name" type="text">
       <hr>
-      <input placeholder="Профессия" class="input" type="text">
+      <input placeholder="Профессия" class="input input_job" type="text">
       <hr>
       <button class="profile-editing__save" type="submit">Сохранить</button>
     </form>
