@@ -11,30 +11,29 @@
 <body class="page">
   <div class="all-content">
     <header class="header">
-      <img src="./images/logo.png" alt="Место Россия" class="header__logo">
+      <img src="./images/logo.svg" alt="Место Россия" class="header__logo">
     </header>
     <main class="content">
       <section class="profile">
-        <figure class="profile-main">
+        <div class="profile__main">
           <img class="profile__avatar" src="./images/image.jpg" alt="Жак-Ив Кусто">
           <div class="profile__info">
             <div class="profile__container">
-              <h2 class="profile__name">Жак-Ив&nbsp;Кусто
-              </h2>
-              <button class="profile__edit"><img class="profile__pencil" src="./images/pencel.png"
+              <h2 class="profile__name">Жак-Ив Кусто</h2>
+              <button class="profile__edit" type="button"><img class="profile__pencil" src="./images/pencil.svg"
                   alt="карандаш"></button>
             </div>
             <p class="profile__job">Исследователь океана</p>
           </div>
-        </figure>
-        <button class="add-place" onclick=""><img class="add-place__plus" src="./images/plus.png" alt="плюс"></button>
+        </div>
+        <button class="profile__add-place" type="button"><img class="profile__plus" src="./images/plus.svg" alt="плюс"></button>
       </section>
       <section class="places">
         <div class="place">
           <img src="./images/karachaevsk.png" alt="карачаевск" class="place__image">
           <div class="place__info">
             <h3 class="place__title">Карачаевск</h3>
-            <img class="place__favorite" src="./images/like.png" alt="лайк">
+            <button class="place__favorite" src="./images/like.png" alt="лайк"></button>  
           </div>
         </div>
         <div class="place">
@@ -82,7 +81,7 @@
   </div>
   <div class="profile-editing hidden">
     <img class="profile-editing__close" src="./images/close_icon.png" alt="закрыть">
-    <h1 class="profile-editing__title">Редактировать профиль</h1>
+    <h2 class="profile-editing__title">Редактировать профиль</h2>
     <form class="profile-editing__form">
       <input placeholder="Имя" class="input input_name" type="text">
       <hr>
@@ -94,4 +93,5 @@
   <script src="./scripts/script.js">
   </script>
 </body>
+
 </html>
