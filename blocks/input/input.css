@@ -1,6 +1,4 @@
 .input {
-    border: none;
-    outline: none;
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
@@ -8,6 +6,8 @@
     border-bottom: 1px solid #000000 .2;
     margin-top: 20px;
     color: #000000;
+    border: none;
+    outline: none;
 }
 @media screen and (max-width: 320px) {
     .input {

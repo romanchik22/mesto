@@ -1,7 +1,6 @@
 
 let profileEditButton = document.querySelector('.profile__edit');
 let popup = document.querySelector('.popup');
-let profileEditing = document.querySelector('.profile-editing');
 let profileEditingCloseButton = document.querySelector('.profile-editing__close');
 let profileName = document.querySelector('.profile__name');
 let profileJob = document.querySelector('.profile__job');
@@ -10,15 +9,13 @@ let inputJob = document.querySelector('.input_job');
 let formElement = document.querySelector('.profile-editing__form');
 
 function showPopup() {
-    popup.classList.remove('hidden');
-    profileEditing.classList.remove('hidden');
+    popup.classList.remove('popup_hidden');
     inputName.value = profileName.innerText;
     inputJob.value = profileJob.innerText; 
 }
 
 function hiddenPopup() {    
-    popup.classList.add('hidden');
-    profileEditing.classList.add('hidden');
+    popup.classList.add('popup_hidden');
 }
 
 function formSubmitHandler (evt) {

@@ -26,49 +26,50 @@
             <p class="profile__job">Исследователь океана</p>
           </div>
         </div>
-        <button class="profile__add-place" type="button"><img class="profile__plus" src="./images/plus.svg" alt="плюс"></button>
+        <button class="profile__add-place" type="button"><img class="profile__plus" src="./images/plus.svg"
+            alt="плюс"></button>
       </section>
       <section class="places">
         <div class="place">
           <img src="./images/karachaevsk.png" alt="карачаевск" class="place__image">
           <div class="place__info">
             <h3 class="place__title">Карачаевск</h3>
-            <button class="place__favorite" src="./images/like.png" alt="лайк"></button>  
+            <button class="place__button-favorite" type="button"><img class="place__favorite" src="./images/like.png" alt="лайк"></button>
           </div>
         </div>
         <div class="place">
           <img src="./images/elbrus.png" alt="эльбрус" class="place__image">
           <div class="place__info">
             <h3 class="place__title">Гора Эльбрус</h3>
-            <img class="place__favorite" src="./images/like.png" alt="лайк">
+            <button class="place__button-favorite" type="button"><img class="place__favorite" src="./images/blackheart.svg" alt="лайк"></button>
           </div>
         </div>
         <div class="place">
           <img src="./images/dombay.png" alt="Домбай" class="place__image">
           <div class="place__info">
             <h3 class="place__title">Домбай</h3>
-            <img class="place__favorite" src="./images/like.png" alt="лайк">
+            <button class="place__button-favorite" type="button"><img class="place__favorite" src="./images/like.png" alt="лайк"></button>
           </div>
         </div>
         <div class="place">
           <img src="./images/elbrus.png" alt="эльбрус" class="place__image">
           <div class="place__info">
             <h3 class="place__title">Гора Эльбрус</h3>
-            <img class="place__favorite" src="./images/like.png" alt="лайк">
+            <button class="place__button-favorite" type="button"><img class="place__favorite" src="./images/blackheart.svg" alt="лайк"></button>
           </div>
         </div>
         <div class="place">
           <img src="./images/dombay.png" alt="Домбай" class="place__image">
           <div class="place__info">
             <h3 class="place__title">Домбай</h3>
-            <img class="place__favorite" src="./images/like.png" alt="лайк">
+            <button class="place__button-favorite" type="button"><img class="place__favorite" src="./images/like.png" alt="лайк"></button>
           </div>
         </div>
         <div class="place">
           <img src="./images/karachaevsk.png" alt="карачаевск" class="place__image">
           <div class="place__info">
             <h3 class="place__title">Карачаево-Черкеск</h3>
-            <img class="place__favorite" src="./images/like.png" alt="лайк">
+            <button class="place__button-favorite" type="button"><img class="place__favorite" src="./images/like.png" alt="лайк"></button>
           </div>
         </div>
       </section>
@@ -77,19 +78,19 @@
       <p class="footer__author">&copy; 2022 Mesto Russia</p>
     </footer>
   </div>
-  <div class="popup hidden">
-  </div>
-  <div class="profile-editing hidden">
-    <img class="profile-editing__close" src="./images/close_icon.png" alt="закрыть">
-    <h2 class="profile-editing__title">Редактировать профиль</h2>
-    <form class="profile-editing__form">
-      <input placeholder="Имя" class="input input_name" type="text">
-      <hr>
-      <input placeholder="Профессия" class="input input_job" type="text">
-      <hr>
-      <button class="profile-editing__save" type="submit">Сохранить</button>
-    </form>
-  </div>
+  <section class="popup popup_hidden">
+    <div class="popup__background">
+    </div>
+    <div class="profile-editing">
+      <img class="profile-editing__close" src="./images/close_icon.png" alt="закрыть">
+      <h2 class="profile-editing__title">Редактировать профиль</h2>
+      <form class="profile-editing__form">
+        <input placeholder="Имя" class="input input_name" type="text">
+        <input placeholder="Профессия" class="input input_job" type="text">
+        <button class="profile-editing__save" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </section>
   <script src="./scripts/script.js">
   </script>
 </body>
