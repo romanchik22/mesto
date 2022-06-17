@@ -7,6 +7,8 @@ let profileJob = document.querySelector('.profile__job');
 let inputName = document.querySelector('.input_name');
 let inputJob = document.querySelector('.input_job');
 let formElement = document.querySelector('.profile-editing__form');
+let placeButtonFavorite = document.querySelectorAll('.place__button-favorite');
+
 
 function showPopup() {
     popup.classList.remove('popup_hidden');
@@ -25,6 +27,13 @@ function formSubmitHandler (evt) {
     profileJob.textContent = inputJob.value; 
 }
 
+function changeFovorite (event) {
+    event.target.classList.toggle('place__button-favorite_black');   
+} 
+
 profileEditButton.addEventListener('click', showPopup);
 profileEditingCloseButton.addEventListener('click', hiddenPopup);
 formElement.addEventListener('submit', formSubmitHandler);
+placeButtonFavorite.forEach(function (el) {
+    el.addEventListener('click', changeFovorite);
+});

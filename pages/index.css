@@ -20,9 +20,9 @@
 @import url(../blocks/place/place.css);
 @import url(../blocks/place/__title/place__title.css);
 @import url(../blocks/place/__button-favorite/place__button-favorite.css);
+@import url(../blocks/place/__button-favorite/_black/place__button-favorite_black.css);
 @import url(../blocks/place/__image/place__image.css);
 @import url(../blocks/place/__info/place__info.css);
-@import url(../blocks/place/__favorite/place__favorite.css);
 @import url(../blocks/profile-editing/profile-editing.css);
 @import url(../blocks/profile-editing/__title/profile-editing__title.css);
 @import url(../blocks/profile-editing/__save/profile-editing__save.css);

@@ -3,16 +3,26 @@
     width: 24px;
     height: 24px;
     background-color: #000000;
-    margin: 5px 0 0 18px;
+    margin: 5px 0 0 23px;
+    box-sizing: border-box;
+    background-image: url('../../../images/pencil.svg');
+    background-repeat: no-repeat;
+    background-size: 10px;
+    background-position-y: 50%;
+    background-position-x: 50%;
 }
-@media screen and (max-width: 320px) {
+
+@media screen and (max-width: 400px) {
     .profile__edit {
+        min-width: 18px;
         width: 18px;
         height: 18px;
         margin: 5px 0 0 10px;
+        padding: 0;
+        background-size: 7.5px;
     }
-    
 }
+
 .profile__edit:hover {
     opacity: .8;
     cursor: pointer;

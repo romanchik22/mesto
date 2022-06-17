@@ -1,7 +1,7 @@
 .prodile__plus {
     width: 22px;
 }
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 400px) {
     .prodile__plus {
         width: 16px;
     }

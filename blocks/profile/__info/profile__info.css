@@ -3,8 +3,14 @@
     flex-direction: column;
     justify-content: flex-start;
     margin: 0 0 0 10px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 400px) {
+    .profile__info {
+        margin: 0;
+        padding: 0 19px;
+        width: 100%;
+        justify-content: center;
+    }
 }
 
