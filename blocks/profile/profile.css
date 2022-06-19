@@ -10,12 +10,13 @@
 
 @media screen and (max-width: 930px) {
     .profile {
+        margin-top: 42px;
         padding: 0 19px;
-    }   
+    }
 }
 
 @media screen and (max-width: 830px) {
     .profile {
         flex-direction: column;
-    }   
+    }
 }

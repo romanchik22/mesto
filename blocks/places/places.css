@@ -3,7 +3,7 @@
     display: grid;
     padding-top: 50px;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 19px 17px;
+    grid-gap: 20px 17px;
 }
 
 @media screen and (max-width: 950px) {
@@ -17,6 +17,6 @@
     .places {
         grid-template-columns: 1fr;
         padding-top: 36px;
-        grid-gap: 20px;
+        grid-gap: 20.5px;
     }
 }

@@ -1,5 +1,5 @@
 .place__button-favorite {
-    background-color: #FFF;
+    background-color: transparent;
     border: none;
     padding: 0;
     background-image: url('../../../images/likesvg.svg');
