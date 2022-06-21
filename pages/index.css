@@ -18,7 +18,7 @@
 @import url(../blocks/place/place.css);
 @import url(../blocks/place/__title/place__title.css);
 @import url(../blocks/place/__button-favorite/place__button-favorite.css);
-@import url(../blocks/place/__button-favorite/_black/place__button-favorite_black.css);
+@import url(../blocks/place/__button-favorite/_active/place__button-favorite_active.css);
 @import url(../blocks/place/__image/place__image.css);
 @import url(../blocks/place/__info/place__info.css);
 @import url(../blocks/popup/popup.css);

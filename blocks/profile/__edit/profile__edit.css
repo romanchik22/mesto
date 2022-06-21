@@ -12,7 +12,7 @@
     background-position-x: 50%;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 615px) {
     .profile__edit {
         min-width: 18px;
         width: 18px;
