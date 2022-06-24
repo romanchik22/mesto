@@ -31,3 +31,6 @@
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__author/footer__author.css);
+@import url(../blocks/grid-element/__image/grid-element__image.css);
+@import url(../blocks/grid-element/grid-element.css);
+@import url(../blocks/body/body.css);

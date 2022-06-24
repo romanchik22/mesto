@@ -27,7 +27,7 @@
         </div>
         <button class="profile__add-place" type="button"></button>
       </section>
-      <section class="places">
+      <!--<section class="places">
         <div class="place">
           <img class="place__image" src="./images/karachaevsk.png" alt="карачаевск">
           <div class="place__info">
@@ -70,7 +70,7 @@
             <button class="place__button-favorite place__button-favorite_black" type="button"></button>
           </div>
         </div>
-      </section>
+      </section>--> 
     </main>
     <footer class="footer">
       <p class="footer__author">&copy; 2022 Mesto Russia</p>
@@ -87,6 +87,22 @@
       </form>
     </div>
   </section>
+  <div class="popup_pictures">
+    <div class="elements"></div>
+
+    <template id="place-template">
+      <article class="grid-element">
+        <h2 class="grid-element__title"></h2>
+        <img class="grid-element__image" alt="фотография архыза" />
+        <div class="grid-element__description">
+          <button class="grid-element__emoji" type="button" aria-label="like">
+            like
+          </button>
+        </div>
+  </div>
+  </article>
+  </template>
+
   <script src="scripts/script.js">
   </script>
 </body>
