@@ -3,8 +3,8 @@ let popup = document.getElementById('editProfile');
 let popupClose = document.querySelector('.popup__close');
 let profileName = document.querySelector('.profile__name');
 let profileJob = document.querySelector('.profile__job');
-let inputName = document.querySelector('input[name="input-name"]');
-let inputJob = document.querySelector('input[name="input-job"]');
+let inputName = document.querySelector('.popup__input_context_name');
+let inputJob = document.querySelector('.popup__input_context_job');
 let formElement = document.querySelector('.popup__form');
 let placeButtonFavorite = document.querySelectorAll('.place__button-favorite');
 
@@ -27,7 +27,7 @@ function formSubmitHandler (evt) {
 }
 
 function changeFavorite (event) {
-    event.target.classList.toggle('place__button-favorite_black');
+    event.target.classList.toggle('place__button-favorite_active');
 }
 
 profileEditButton.addEventListener('click', showPopup);

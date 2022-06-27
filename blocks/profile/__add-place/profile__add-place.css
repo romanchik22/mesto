@@ -10,7 +10,7 @@
     background-position-y: 50%;
     background-position-x: 50%;
 }
-@media screen and (max-width: 610px) {
+@media screen and (max-width: 615px) {
     .profile__add-place {
         width: 282px;
         height: 50px;
