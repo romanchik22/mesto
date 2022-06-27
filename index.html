@@ -27,8 +27,8 @@
         </div>
         <button class="profile__add-place" type="button"></button>
       </section>
-      <!--<section class="places">
-        <div class="place">
+      <section class="places">
+        <!-- <div class="place">
           <img class="place__image" src="./images/karachaevsk.png" alt="карачаевск">
           <div class="place__info">
             <h3 class="place__title">Карачаевск</h3>
@@ -62,15 +62,15 @@
             <h3 class="place__title">Домбай</h3>
             <button class="place__button-favorite" type="button"></button>
           </div>
-        </div>
+        </div> 
         <div class="place">
           <img src="./images/karachaevsk.png" alt="карачаевск" class="place__image">
           <div class="place__info">
             <h3 class="place__title">Карачаево-Черкеск</h3>
             <button class="place__button-favorite place__button-favorite_black" type="button"></button>
           </div>
-        </div>
-      </section>--> 
+        </div>-->
+      </section>
     </main>
     <footer class="footer">
       <p class="footer__author">&copy; 2022 Mesto Russia</p>
@@ -87,20 +87,14 @@
       </form>
     </div>
   </section>
-  <div class="popup_pictures">
-    <div class="elements"></div>
+  <template class="place-templete">
+    <div class="place"><img src="" alt="" class="place__image">
+      <div class="place__info">
+        <h3 class="place__title"></h3>
+        <button class="place_button-favorite place_button-favorite_black" type="button"></button>
+      </div>
+    </div>
 
-    <template id="place-template">
-      <article class="grid-element">
-        <h2 class="grid-element__title"></h2>
-        <img class="grid-element__image" alt="фотография архыза" />
-        <div class="grid-element__description">
-          <button class="grid-element__emoji" type="button" aria-label="like">
-            like
-          </button>
-        </div>
-  </div>
-  </article>
   </template>
 
   <script src="scripts/script.js">

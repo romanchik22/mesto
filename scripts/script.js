@@ -63,27 +63,21 @@ const initialCards = [
     }
   ];
 
-const placesContainer = document.querySelector(".elements");
-const placeTemplate = document.querySelector("#place-template").content;
-
-const placeInfo = initialCards0(function (card) {
-  return {
-    name: card.name,
-    link: card.link
-  };
-});
+const placesContainer = document.querySelector(".places");
+const placeTemplate = document.querySelector(".place-templete").content;
 
 function render() {
-  placeInfo.forEach(renderCard);
+    initialCards.forEach(renderCard);
 }
 
 function renderCard({ name, link }) {
   const placeElement = placeTemplate
-    .querySelector(".grid-element")
+    // .querySelector(".place")
     .cloneNode(true);
-  placeElement.querySelector(".grid-element__title").textContent = name;
-  placeElement.querySelector(".grid-element__image").src = link;
-
+  placeElement.querySelector(".place__title").textContent = name;
+  placeElement.querySelector(".place__image").src = link;
+  placeElement.querySelector(".place_button-favorite").classList.toggle('place__button-favorite_black');
+    
   placesContainer.prepend(placeElement);
 }
 
