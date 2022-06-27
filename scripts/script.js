@@ -33,9 +33,13 @@ function changeFavorite (event) {
 profileEditButton.addEventListener('click', showPopup);
 popupClose.addEventListener('click', hiddenPopup);
 formElement.addEventListener('submit', formSubmitHandler);
-placeButtonFavorite.forEach(function (el) {
-    el.addEventListener('click', changeFavorite);
-}); 
+
+const placeButtonRender = () => {
+    placeButtonFavorite.forEach(function (el) {
+        el.addEventListener('click', changeFavorite);
+    }); 
+}  
+
 
 const initialCards = [
     {
@@ -77,17 +81,40 @@ function renderCard({ name, link }) {
     .cloneNode(true);
   placeElement.querySelector(".place__title").textContent = name;
   placeElement.querySelector(".place__image").src = link;
-  placeElement.querySelector(".place_button-favorite").classList.toggle('place__button-favorite_black');
+  placeElement.querySelector(".place__button-favorite").classList.toggle('place__button-favorite_black');
     
   placesContainer.prepend(placeElement);
 }
 
 render();
+placeButtonRender(); 
 
-let cardEditButton = document.querySelector('.profile__add-place');
 let cardPopup = document.getElementById('add-card');
-let cardPopupClose = document.querySelector('.popup__close');
+let cardEditButton = document.querySelector('.profile__add-place');
+
+let cardPopupClose = cardPopup.querySelector('.popup__close');
 //let inputName = document.querySelector('input[name="input-name"]');
 //let inputJob = document.querySelector('input[name="input-job"]');
-let cardFormElement = document.querySelector('.popup__form');
+let cardFormElement = cardPopup.querySelector('.popup__form');
 
+function cardShowPopup() {
+    cardPopup.classList.add('popup_opened');
+    //inputName.value = profileName.innerText;
+    //inputJob.value = profileJob.innerText;
+}
+
+function cardHiddenPopup() {
+    cardPopup.classList.remove('popup_opened');
+}
+
+function cardFormSubmitHandler (evt) {
+    evt.preventDefault();
+    cardHiddenPopup();
+    //profileName.textContent = inputName.value;
+    //profileJob.textContent = inputJob.value;
+}
+
+
+cardEditButton.addEventListener('click', cardShowPopup);
+cardPopupClose.addEventListener('click', cardHiddenPopup);
+cardFormElement.addEventListener('submit', cardFormSubmitHandler);
