@@ -1,5 +1,5 @@
 let profileEditButton = document.querySelector('.profile__edit');
-let popup = document.querySelector('.popup');
+let popup = document.getElementById('editProfile');
 let popupClose = document.querySelector('.popup__close');
 let profileName = document.querySelector('.profile__name');
 let profileJob = document.querySelector('.profile__job');
@@ -36,6 +36,7 @@ formElement.addEventListener('submit', formSubmitHandler);
 placeButtonFavorite.forEach(function (el) {
     el.addEventListener('click', changeFavorite);
 }); 
+
 const initialCards = [
     {
       name: 'Архыз',
@@ -83,4 +84,10 @@ function renderCard({ name, link }) {
 
 render();
 
+let cardEditButton = document.querySelector('.profile__add-place');
+let cardPopup = document.getElementById('add-card');
+let cardPopupClose = document.querySelector('.popup__close');
+//let inputName = document.querySelector('input[name="input-name"]');
+//let inputJob = document.querySelector('input[name="input-job"]');
+let cardFormElement = document.querySelector('.popup__form');
 
