@@ -6,7 +6,7 @@ let profileJob = document.querySelector('.profile__job');
 let inputName = document.querySelector('.popup__input_context_name');
 let inputJob = document.querySelector('.popup__input_context_job');
 let formElement = document.querySelector('.popup__form');
-let placeButtonFavorite = document.querySelectorAll('.place__button-favorite');
+
 
 
 function showPopup() {
@@ -33,13 +33,6 @@ function changeFavorite (event) {
 profileEditButton.addEventListener('click', showPopup);
 popupClose.addEventListener('click', hiddenPopup);
 formElement.addEventListener('submit', formSubmitHandler);
-
-const placeButtonRender = () => {
-    placeButtonFavorite.forEach(function (el) {
-        el.addEventListener('click', changeFavorite);
-    }); 
-}  
-
 
 const initialCards = [
     {
@@ -77,30 +70,32 @@ function render() {
 
 function renderCard({ name, link }) {
   const placeElement = placeTemplate
-    // .querySelector(".place")
     .cloneNode(true);
   placeElement.querySelector(".place__title").textContent = name;
-  placeElement.querySelector(".place__image").src = link;
-  placeElement.querySelector(".place__button-favorite").classList.toggle('place__button-favorite_black');
-    
-  placesContainer.prepend(placeElement);
+  const placeImage = placeElement.querySelector(".place__image");
+  placeImage.src = link;
+  placeImage.alt = name;
+
+  // беру кнопку и на неё вешаю прослушивателя
+  placeElement.querySelector(".place__button-favorite").addEventListener('click', changeFavorite);
+  
+  placesContainer.prepend(placeElement);  
 }
 
 render();
-placeButtonRender(); 
 
 let cardPopup = document.getElementById('add-card');
 let cardEditButton = document.querySelector('.profile__add-place');
 
 let cardPopupClose = cardPopup.querySelector('.popup__close');
-//let inputName = document.querySelector('input[name="input-name"]');
-//let inputJob = document.querySelector('input[name="input-job"]');
+let cardInputPlace = document.querySelector('.popup__input_context_place');
+let cardInputLink = document.querySelector('.popup__input_context_link');
 let cardFormElement = cardPopup.querySelector('.popup__form');
 
 function cardShowPopup() {
     cardPopup.classList.add('popup_opened');
-    //inputName.value = profileName.innerText;
-    //inputJob.value = profileJob.innerText;
+    cardInputPlace.value = '';
+    cardInputLink.value = '';
 }
 
 function cardHiddenPopup() {
@@ -110,9 +105,16 @@ function cardHiddenPopup() {
 function cardFormSubmitHandler (evt) {
     evt.preventDefault();
     cardHiddenPopup();
-    //profileName.textContent = inputName.value;
-    //profileJob.textContent = inputJob.value;
+
+    const newPlace = {
+        name: cardInputPlace.value,
+        link: cardInputLink.value
+    }
+
+    initialCards.unshift(newPlace); 
+    renderCard(newPlace);
 }
+
 
 
 cardEditButton.addEventListener('click', cardShowPopup);
