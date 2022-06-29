@@ -1,11 +1,11 @@
-let profileEditButton = document.querySelector('.profile__edit');
-let popup = document.getElementById('editProfile');
-let popupClose = document.querySelector('.popup__close');
-let profileName = document.querySelector('.profile__name');
-let profileJob = document.querySelector('.profile__job');
-let inputName = document.querySelector('.popup__input_context_name');
-let inputJob = document.querySelector('.popup__input_context_job');
-let formElement = document.querySelector('.popup__form');
+const profileEditButton = document.querySelector('.profile__edit');
+const popup = document.getElementById('popup-editProfile');
+const popupClose = document.querySelector('.popup__close');
+const profileName = document.querySelector('.profile__name');
+const profileJob = document.querySelector('.profile__job');
+const inputName = document.querySelector('.popup__input_context_name');
+const inputJob = document.querySelector('.popup__input_context_job');
+const formEditProfile = document.querySelector('.popup__form');
 
 
 
@@ -20,19 +20,16 @@ function hiddenPopup() {
 }
 
 function formSubmitHandler (evt) {
+    //функция отменяет стандартное поведение submit
     evt.preventDefault();
     hiddenPopup();
     profileName.textContent = inputName.value;
     profileJob.textContent = inputJob.value;
 }
 
-function changeFavorite (event) {
-    event.target.classList.toggle('place__button-favorite_active');
-}
-
 profileEditButton.addEventListener('click', showPopup);
 popupClose.addEventListener('click', hiddenPopup);
-formElement.addEventListener('submit', formSubmitHandler);
+formEditProfile.addEventListener('submit', formSubmitHandler);
 
 const initialCards = [
     {
@@ -68,6 +65,36 @@ function render() {
     initialCards.forEach(renderCard);
 }
 
+function changeFavorite (event) {
+    event.target.classList.toggle('place__button-favorite_active');
+}
+
+const cardDelete = (event) => {
+    const  deleteButton = event.target; 
+    const listItem = deleteButton.closest('.place');
+    listItem.remove();
+}
+
+const popupImage = document.querySelector('#popup-image');
+
+const imagePopupClose = popupImage.querySelector('.popup__close');
+
+function imageHiddenPopup() {
+    popupImage.classList.remove('popup_opened');
+}
+
+imagePopupClose.addEventListener('click', imageHiddenPopup);
+
+const showImageFull = (event) => {
+    const  imageElement = event.target; 
+    popupImage.classList.add('popup_opened');
+    const popupFullImage = popupImage.querySelector('.popup__image-full');
+    popupFullImage.src = imageElement.src; 
+    popupFullImage.alt = imageElement.alt;
+    popupImage.querySelector('.popup__image-subtitle').textContent = imageElement.alt;
+
+}
+
 function renderCard({ name, link }) {
   const placeElement = placeTemplate
     .cloneNode(true);
@@ -78,19 +105,21 @@ function renderCard({ name, link }) {
 
   // беру кнопку и на неё вешаю прослушивателя
   placeElement.querySelector(".place__button-favorite").addEventListener('click', changeFavorite);
+  placeElement.querySelector(".place__button-delete").addEventListener('click', cardDelete);
+  placeElement.querySelector(".place__image").addEventListener('click', showImageFull);
   
   placesContainer.prepend(placeElement);  
 }
 
 render();
 
-let cardPopup = document.getElementById('add-card');
-let cardEditButton = document.querySelector('.profile__add-place');
+const cardPopup = document.getElementById('add-card');
+const cardEditButton = document.querySelector('.profile__add-place');
 
-let cardPopupClose = cardPopup.querySelector('.popup__close');
-let cardInputPlace = document.querySelector('.popup__input_context_place');
-let cardInputLink = document.querySelector('.popup__input_context_link');
-let cardFormElement = cardPopup.querySelector('.popup__form');
+const cardPopupClose = cardPopup.querySelector('.popup__close');
+const cardInputPlace = document.querySelector('.popup__input_context_place');
+const cardInputLink = document.querySelector('.popup__input_context_link');
+const cardFormElement = cardPopup.querySelector('.popup__form');
 
 function cardShowPopup() {
     cardPopup.classList.add('popup_opened');
@@ -120,3 +149,5 @@ function cardFormSubmitHandler (evt) {
 cardEditButton.addEventListener('click', cardShowPopup);
 cardPopupClose.addEventListener('click', cardHiddenPopup);
 cardFormElement.addEventListener('submit', cardFormSubmitHandler);
+
+

@@ -1,0 +1,8 @@
+.popup__container-image { 
+    width: 75vw;
+    height: 75vh;
+    position: absolute;
+    z-index: 101;
+    box-sizing: border-box;
+    
+ }
