@@ -35,7 +35,8 @@
       <p class="footer__author">&copy; 2022 Mesto Russia</p>
     </footer>
   </div>
-  <section id="popup-editProfile" class="popup">
+
+  <section id="popup-edit-profile" class="popup">
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
@@ -47,7 +48,7 @@
     </div>
   </section>
 
-  <section id="add-card" class="popup">
+  <section id="popup-add-card" class="popup">
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
@@ -63,27 +64,28 @@
   <section id="popup-image" class="popup">
     <div class="popup__container-image">
       <button class="popup__close" type="button"></button>
-      <img class="popup__image-full">
+      <img class="popup__image-full" src="/" alt="">
       <h3 class="popup__image-subtitle"></h3>
     </div>
   </section>
 
-
   <template class="place-templete">
     <div class="place">
-      <img class="place__image">
+      <img class="place__image" src="/" alt="">
       <div class="place__info">
         <h3 class="place__title"></h3>
-        <button class="place__button-favorite place__button-favorite_black" type="button"></button>
+        <button class="place__button-favorite" type="button"></button>
         <button class="place__button-delete" type="button"></button>
       </div>
-
     </div>
-
   </template>
 
-  <script src="scripts/script.js">
+  <script src="scripts/card.js">
   </script>
+  
+  <script src="scripts/index.js">
+  </script>
+  
 </body>
 
 </html>
