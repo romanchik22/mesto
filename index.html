@@ -40,9 +40,11 @@
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form" name="edit-profile">
-        <input name="input-name" class="popup__input popup__input_context_name" placeholder="Имя" type="text">
-        <input name="input-job" class="popup__input popup__input_context_job" placeholder="Профессия" type="text">
+      <form class="popup__form popup__form_user" name="edit-profile" novalidate>
+        <input name="input-name" class="popup__input popup__input_context_name" placeholder="Имя" type="text" minlength="2" maxlength="40" required>
+        <span class="error" id="profile-name-error"></span>
+        <input name="input-job" class="popup__input popup__input_context_job" placeholder="Профессия" type="text" minlength="2" maxlength="200" required>
+        <span class="error" id="profile-job-error"></span>
         <button class="popup__save" type="submit">Сохранить</button>
       </form>
     </div>
@@ -52,11 +54,12 @@
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__form" name="edit-profile">
-        <input name="input-place" class="popup__input popup__input_context_place" placeholder="Название" type="text">
-        <input name="input-link" class="popup__input popup__input_context_link" placeholder="Ссылка на картинку"
-          type="text">
-        <button class="popup__save" type="submit">Сохранить</button>
+      <form class="popup__form popup__form_new" name="edit-profile">
+        <input id="name-card" name="input-place" class="popup__input popup__input_context_place" type="text" minlength="2" maxlength="30" required placeholder="Название">
+        <span id="name-card-error" class="error"></span>
+        <input id="link" name="input-link" class="popup__input popup__input_context_link" type="url" required placeholder="Ссылка на картинку">
+        <span id="link-error" class="error"></span>
+        <button class="popup__save popup__save_invalid popup__save_valid" type="submit">Создать</button>
       </form>
     </div>
   </section>
@@ -82,7 +85,7 @@
 
   <script src="scripts/card.js">
   </script>
-  
+
   <script src="scripts/index.js">
   </script>
   
