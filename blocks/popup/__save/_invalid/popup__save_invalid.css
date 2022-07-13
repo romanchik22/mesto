@@ -1,6 +1,5 @@
 .popup__save_invalid {
-    background-size:  #E5E5E5;
-    color: #000;
+    background-size:  #E5E5E5;  
     opacity: .15;
     border: 1px solid #000000;
     border-radius: 2px;

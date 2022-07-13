@@ -1,15 +1,16 @@
-const formAddCard = document.querySelector('.popup__form_new');
-const formUser = document.querySelector('.popup__form_user');
+function submitButtonStatus(form, inactiveButtonClass, submitButtonSelector) {
+    const buttonActivity = form.querySelector(submitButtonSelector); 
 
-formAddCard.addEventListener('submit', sendFormProfile); 
-formAddCard.addEventListener('input', handlerInputForm); 
-formUser.addEventListener('submit', sendFormProfile); 
-formUser.addEventListener('input', handlerInputForm); 
+    if (form.checkValidity()) {
+        buttonActivity.removeAttribute('disabled', true);
+        buttonActivity.classList.remove(inactiveButtonClass);
+    } else { 
+        buttonActivity.setAttribute('disabled', true);
+        buttonActivity.classList.add(inactiveButtonClass);
+    }
+}
 
-validateForm(formAddCard);
-validateForm(formUser);
-
-function sendFormProfile(event) {
+function sendForm(event) {
     event.preventDefault(); 
 
     const formGet = event.target; 
@@ -21,65 +22,51 @@ function sendFormProfile(event) {
     }   
 }
 
-function handlerInputForm(event) {
-    const curentForm = event.currentTarget; //тот объект для ккоторого сделан прослушиватель ('input', HandlerInputForm)
-     
-    validateForm(curentForm);
-    validateInputError(event.target); 
-    
-}
-
-
-
-function validateForm(form) {
-
-    const buttonActivity = form.querySelector('.popup__save'); 
-
-    if (form.checkValidity()) {
-        buttonActivity.removeAttribute('disabled', true);
-        buttonActivity.classList.add('popup__save_valid');
-        buttonActivity.classList.remove('popup__save_invalid');
-    } else { 
-        buttonActivity.setAttribute('disabled', true);
-        buttonActivity.classList.remove('popup__save_valid');
-        buttonActivity.classList.add('popup__save_invalid');
-    }
-}
-
-function validateInputError(input) {
-    
-    addCustomErrorMessage(input);
-    console.log(`#${input.id}-error`); 
+function validateInputError(input, inputErrorClass) {
     const errorElement = input.parentNode.querySelector(`#${input.id}-error`);  
 
     if (input.validationMessage) {
-        input.classList.add('popup__input_red'); 
+        input.classList.add(inputErrorClass); 
     } else {
-        input.classList.remove('popup__input_red'); 
+        input.classList.remove(inputErrorClass); 
     }
 
     errorElement.textContent = input.validationMessage; 
-} 
-
-
-function addCustomErrorMessage(input) {
-
-    /* input.setCustomValidity('');
-    
-    if (input.validity.valueMissing) {
-        input.setCustomValidity('Вы пропустили это поле'); 
-    }
-
-    if (input.validity.tooShort || input.validity.tooLong) {
-        input.setCustomValidity('В поле должно быть от 2 до 30 символов'); 
-    }
-
-    if (input.validity.typeMismatch && input.type === 'url') {
-        input.setCustomValidity('Введите адрес сайта'); 
-    }
-
-    if (input.type === 'url') {
-        input.setCustomValidity('Введите адрес сайта'); 
-    } */
-
 }
+
+function enableValidation({
+    formSelector,
+    inputSelector,
+    submitButtonSelector,
+    inactiveButtonClass,
+    inputErrorClass,
+    errorClass
+  }) {
+
+    function handlerInputForm(event) {
+        const curentForm = event.currentTarget; //тот объект для ккоторого сделан прослушиватель ('input', HandlerInputForm)
+         
+        submitButtonStatus(curentForm, inactiveButtonClass, submitButtonSelector);
+        validateInputError(event.target, inputErrorClass);  
+    }
+    
+    const form = document.querySelector(formSelector);
+    form.addEventListener('submit', sendForm); 
+    form.addEventListener('input', handlerInputForm);
+ 
+    submitButtonStatus(form, inactiveButtonClass, submitButtonSelector);  
+  };
+
+enableValidation({
+    formSelector: '.popup__form_new',
+    inputErrorClass: 'popup__input_red',
+    inactiveButtonClass: 'popup__save_invalid',
+    submitButtonSelector: '.popup__save'
+})
+
+enableValidation({
+    formSelector: '.popup__form_user',
+    inputErrorClass: 'popup__input_red',
+    inactiveButtonClass: 'popup__save_invalid',
+    submitButtonSelector: '.popup__save',
+})
