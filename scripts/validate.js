@@ -29,6 +29,7 @@ function validateInputError(input, inputErrorClass) {
 }
 
 function handlerInputForm(event, inactiveButtonClass, submitButtonSelector, inputErrorClass) {
+    console.log(event);
     const curentForm = event.currentTarget; //тот объект для ккоторого сделан прослушиватель ('input', HandlerInputForm)
      
     submitButtonStatus(curentForm, inactiveButtonClass, submitButtonSelector);
@@ -43,13 +44,12 @@ function enableValidation({
     inputErrorClass,
     errorClass
   }) {
-
-    document.forms.forEach(form => {
-            form.addEventListener('submit', handleSubmit); 
+    for (let form of document.forms) {
+        form.addEventListener('submit', handleSubmit); 
             form.addEventListener('input', (event) => handlerInputForm(event, inactiveButtonClass, submitButtonSelector, inputErrorClass));
          
             submitButtonStatus(form, inactiveButtonClass, submitButtonSelector);
-        })
+    };
   };
 
 enableValidation({
