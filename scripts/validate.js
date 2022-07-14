@@ -44,8 +44,7 @@ function enableValidation({
     errorClass
   }) {
 
-    document.querySelectorAll(formSelector)
-        .forEach(form => {
+    document.forms.forEach(form => {
             form.addEventListener('submit', handleSubmit); 
             form.addEventListener('input', (event) => handlerInputForm(event, inactiveButtonClass, submitButtonSelector, inputErrorClass));
          
