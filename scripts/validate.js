@@ -1,6 +1,7 @@
 function submitButtonStatus(form, inactiveButtonClass, submitButtonSelector) {
-    const buttonActivity = form.querySelector(submitButtonSelector); 
+    const buttonActivity = form.querySelector(submitButtonSelector);
 
+    console.log(buttonActivity);
     if (form.checkValidity()) {
         buttonActivity.removeAttribute('disabled', true);
         buttonActivity.classList.remove(inactiveButtonClass);
@@ -10,16 +11,9 @@ function submitButtonStatus(form, inactiveButtonClass, submitButtonSelector) {
     }
 }
 
-function sendForm(event) {
-    event.preventDefault(); 
-
-    const formGet = event.target; 
-
-    if (formGet.checkValidity()) {
-        alert("форма валидна");
-    } else {
-        alert("форма не валидна");
-    }   
+function handleSubmit(event) {
+    event.preventDefault();
+    hiddenPopup(event.target.closest('.popup')); 
 }
 
 function validateInputError(input, inputErrorClass) {
@@ -34,6 +28,13 @@ function validateInputError(input, inputErrorClass) {
     errorElement.textContent = input.validationMessage; 
 }
 
+function handlerInputForm(event, inactiveButtonClass, submitButtonSelector, inputErrorClass) {
+    const curentForm = event.currentTarget; //тот объект для ккоторого сделан прослушиватель ('input', HandlerInputForm)
+     
+    submitButtonStatus(curentForm, inactiveButtonClass, submitButtonSelector);
+    validateInputError(event.target, inputErrorClass);  
+}
+
 function enableValidation({
     formSelector,
     inputSelector,
@@ -43,30 +44,18 @@ function enableValidation({
     errorClass
   }) {
 
-    function handlerInputForm(event) {
-        const curentForm = event.currentTarget; //тот объект для ккоторого сделан прослушиватель ('input', HandlerInputForm)
+    document.querySelectorAll(formSelector)
+        .forEach(form => {
+            form.addEventListener('submit', handleSubmit); 
+            form.addEventListener('input', (event) => handlerInputForm(event, inactiveButtonClass, submitButtonSelector, inputErrorClass));
          
-        submitButtonStatus(curentForm, inactiveButtonClass, submitButtonSelector);
-        validateInputError(event.target, inputErrorClass);  
-    }
-    
-    const form = document.querySelector(formSelector);
-    form.addEventListener('submit', sendForm); 
-    form.addEventListener('input', handlerInputForm);
- 
-    submitButtonStatus(form, inactiveButtonClass, submitButtonSelector);  
+            submitButtonStatus(form, inactiveButtonClass, submitButtonSelector);
+        })
   };
 
 enableValidation({
-    formSelector: '.popup__form_new',
+    formSelector: '.popup__form',
     inputErrorClass: 'popup__input_red',
-    inactiveButtonClass: 'popup__save_invalid',
-    submitButtonSelector: '.popup__save'
-})
-
-enableValidation({
-    formSelector: '.popup__form_user',
-    inputErrorClass: 'popup__input_red',
-    inactiveButtonClass: 'popup__save_invalid',
-    submitButtonSelector: '.popup__save',
+    inactiveButtonClass,
+    submitButtonSelector
 })
