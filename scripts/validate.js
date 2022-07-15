@@ -1,39 +1,33 @@
-function submitButtonStatus(form, inactiveButtonClass, submitButtonSelector) {
-    const buttonActivity = form.querySelector(submitButtonSelector);
+function submitButtonStatus(form, inactiveButtonClass, buttonActivity) {
 
-    console.log(buttonActivity);
     if (form.checkValidity()) {
-        buttonActivity.removeAttribute('disabled', true);
+        buttonActivity.removeAttribute('disabled');
         buttonActivity.classList.remove(inactiveButtonClass);
-    } else { 
+    } else {
         buttonActivity.setAttribute('disabled', true);
         buttonActivity.classList.add(inactiveButtonClass);
     }
 }
 
-function handleSubmit(event) {
-    event.preventDefault();
-    hiddenPopup(event.target.closest('.popup')); 
-}
 
 function validateInputError(input, inputErrorClass) {
-    const errorElement = input.parentNode.querySelector(`#${input.id}-error`);  
+    const errorElement = input.parentNode.querySelector(`#${input.id}-error`);
 
     if (input.validationMessage) {
-        input.classList.add(inputErrorClass); 
+        input.classList.add(inputErrorClass);
     } else {
-        input.classList.remove(inputErrorClass); 
+        input.classList.remove(inputErrorClass);
     }
 
-    errorElement.textContent = input.validationMessage; 
+    errorElement.textContent = input.validationMessage;
 }
 
-function handlerInputForm(event, inactiveButtonClass, submitButtonSelector, inputErrorClass) {
-    console.log(event);
-    const curentForm = event.currentTarget; //тот объект для ккоторого сделан прослушиватель ('input', HandlerInputForm)
-     
-    submitButtonStatus(curentForm, inactiveButtonClass, submitButtonSelector);
-    validateInputError(event.target, inputErrorClass);  
+function handlerInputForm(event, inactiveButtonClass, buttonActivity, inputErrorClass) {
+    
+    const currentForm = event.currentTarget; //тот объект для ккоторого сделан прослушиватель ('input', HandlerInputForm)
+
+    submitButtonStatus(currentForm, inactiveButtonClass, buttonActivity);
+    validateInputError(event.target, inputErrorClass);
 }
 
 function enableValidation({
@@ -43,14 +37,19 @@ function enableValidation({
     inactiveButtonClass,
     inputErrorClass,
     errorClass
-  }) {
+}) {
     for (let form of document.forms) {
-        form.addEventListener('submit', handleSubmit); 
-            form.addEventListener('input', (event) => handlerInputForm(event, inactiveButtonClass, submitButtonSelector, inputErrorClass));
-         
-            submitButtonStatus(form, inactiveButtonClass, submitButtonSelector);
+        const buttonActivity = form.querySelector(submitButtonSelector);
+
+        form.addEventListener('submit', handleSubmit);
+        form.querySelectorAll('.popup__input')
+            .forEach(item => item.addEventListener('input', 
+                (event) => handlerInputForm(event, inactiveButtonClass, buttonActivity, inputErrorClass))
+            );
+        
+        submitButtonStatus(form, inactiveButtonClass, buttonActivity);
     };
-  };
+};
 
 enableValidation({
     formSelector: '.popup__form',

@@ -11,6 +11,8 @@ const popupImageCloseButton = popupImage.querySelector('.popup__close');
 const placesContainer = document.querySelector(".places");
 const placeTemplate = document.querySelector(".place-templete").content;
 const cardPopup = document.getElementById('popup-add-card');
+const buttonSubmitCardPopup = cardPopup.querySelector('.popup__save');
+const cardPopupForm = cardPopup.querySelector('.popup__form');
 const cardEditButton = document.querySelector('.profile__add-place');
 const cardPopupClose = cardPopup.querySelector('.popup__close');
 const cardInputPlace = document.querySelector('.popup__input_context_place');
@@ -19,11 +21,12 @@ const cardFormElement = cardPopup.querySelector('.popup__form');
 const popupFullImage = popupImage.querySelector('.popup__image-full');
 const inactiveButtonClass = 'popup__save_disabled';
 const submitButtonSelector = '.popup__save';
- 
+const ESC_CODE = 27; 
+
 
 function handlerKeyboardEvent(event) {
-    if (event.keyCode == 27 ) {
-       hiddenPopup(document.querySelector('.popup_opened')); 
+    if (event.keyCode == ESC_CODE) {
+        hiddenPopup(document.querySelector('.popup_opened'));
     }
 }
 
@@ -31,26 +34,22 @@ const handleCheckTarget = (event) => {
     if (event.target.classList.contains('popup')) hiddenPopup(event.target);
 }
 
-function changePopupListener(popup) {
-    popup.addEventListener('click', handleCheckTarget);
-}
-
 function showPopup(popup) {
-    changePopupListener(popup);
+    popup.addEventListener('click', handleCheckTarget);
     popup.classList.add('popup_opened');
-    window.addEventListener('keydown', handlerKeyboardEvent);
+    document.addEventListener('keydown', handlerKeyboardEvent);
 }
 
 const editProfile = () => {
     inputName.value = profileName.textContent;
     inputJob.value = profileJob.textContent;
-    showPopup(popupEditProfile); 
-}  
+    showPopup(popupEditProfile);
+}
 
 function hiddenPopup(popup) {
     popup.classList.remove('popup_opened');
     popup.removeEventListener('click', handleCheckTarget);
-    window.removeEventListener('keydown', handlerKeyboardEvent);
+    document.removeEventListener('keydown', handlerKeyboardEvent);
 }
 
 function submitFormEditProfile(evt) {
@@ -93,25 +92,24 @@ const createCard = ({ name, link }) => {
 
     placeElement.querySelector(".place__button-favorite").addEventListener('click', changeFavorite);
     placeElement.querySelector(".place__button-delete").addEventListener('click', deleteCard);
-    placeElement.querySelector(".place__image").addEventListener('click', showImageFull);
+    placeImage.addEventListener('click', showImageFull);
 
-    return placeElement; 
+    return placeElement;
 }
 
-function renderCard({ name, link }) {
-    const newPlaceElement = createCard({ name, link }); 
+function renderCard(cardInfo) {
+    const newPlaceElement = createCard(cardInfo);
     placesContainer.prepend(newPlaceElement);
 }
 
-function showPopupAddCard(popup) {
-    cardInputPlace.value = '';
-    cardInputLink.value = '';
+function showPopupAddCard() {
+    cardPopupForm.reset();
     submitButtonStatus(
-        popup.querySelector('.popup__form'),
+        cardPopupForm,
         inactiveButtonClass,
-        submitButtonSelector,
+        buttonSubmitCardPopup,
     );
-    showPopup(cardPopup); 
+    showPopup(cardPopup);
 }
 
 function submitHandlerCardForm(evt) {
@@ -123,13 +121,17 @@ function submitHandlerCardForm(evt) {
         link: cardInputLink.value
     }
 
-    initialCards.unshift(newPlace);
     renderCard(newPlace);
 }
 
-cardEditButton.addEventListener('click', () => showPopupAddCard(cardPopup));
+function handleSubmit(event) {
+    event.preventDefault();
+    hiddenPopup(event.target.closest('.popup'));
+}
+
+cardEditButton.addEventListener('click', showPopupAddCard);
 cardPopupClose.addEventListener('click', () => hiddenPopup(cardPopup));
-cardFormElement.addEventListener('submit', submitHandlerCardForm);  
+cardFormElement.addEventListener('submit', submitHandlerCardForm);
 popupImageCloseButton.addEventListener('click', () => hiddenPopup(popupImage));
 profileEditButton.addEventListener('click', editProfile);
 popupCloseProfileButton.addEventListener('click', () => hiddenPopup(popupEditProfile));
